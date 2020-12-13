@@ -1,10 +1,21 @@
-const express = require("express");  // will use express router method
+const express = require("express");
 const router = express.Router();
 const BookController = require("../controllers/BookController");
 
+// base url: /api/books
 
-// api/auth/
-router.post("/register", BookController.bookRegister);
-router.post("/login", BookController.bookLogin);
+/**
+ * @route   GET /api/books
+ * @desc    Books Listing endpoint
+ * @access  Public
+ */
+router.get("/", BookController.getBookList);
+
+/**
+ * @route   GET /api/books/details/:id
+ * @desc    Books Details endpoint
+ * @access  Public
+ */
+router.get("/details/:id", BookController.getBookDetails);
 
 module.exports = router;

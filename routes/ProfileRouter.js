@@ -1,14 +1,22 @@
-const express = require("express");  // will use express router method
+const express = require("express");
+const auth = require("../middleware/authMiddleware");
 const router = express.Router();
 const ProfileController = require("../controllers/ProfileController");
 
+// base url: /api/profile
 
-// api/auth/
-router.post("/register", ProfileController.profileRegister);
-router.post("/login", ProfileController.profileLogin);
+/**
+ * @route   GET /api/profile
+ * @desc    Profile endpoint
+ * @access  Private
+ */
+router.get("/", auth, ProfileController.getProfileInfo);
+
+/**
+ * @route   PUT /api/profile/update
+ * @desc    Update Profile endpoint
+ * @access  Private
+ */
+router.get("/update", auth, ProfileController.updateProfileInfo);
 
 module.exports = router;
-
-
-// todo
-// 
