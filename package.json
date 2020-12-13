@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "PROJE : Bookstore",
   "main": "server.js",
-  "engines": {
-    "node": ">=12.00.0"
-  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
