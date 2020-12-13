@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "PROJE : Bookstore",
   "main": "server.js",
+  "engines": {
+    "node": ">=12.00.0"
+  },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
+    "concurrently": "^5.3.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.8.0",
@@ -18,13 +22,17 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "start-client": "npm start --prefix client",
+    "develop": "concurrently  -n 'server,client' -c 'red,blue' \"npm run server\"     \"npm run start-client\" ",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hakansaglam29/MERN.git"
   },
-  "author": "",
+  "author": "Hakan Saglam",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hakansaglam29/MERN/issues"
